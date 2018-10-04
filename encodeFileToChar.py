@@ -97,14 +97,28 @@ if __name__ == '__main__':
 
 
 	# Create the source code for embedding the binary blob
-	outputEncoding = generateCharEncoding(TEMP_OUTPUT_BLOB_FILE)
+		# Create the source code for embedding the binary blob
+	outputEncoding = ""
+	outputEncoding += "#ifndef ENCODEDDATA_H"
+	outputEncoding += "\n"
+	outputEncoding += "#define ENCODEDDATA_H"
+	outputEncoding += "\n"
+	outputEncoding += "\n"
+
+	outputEncoding += generateCharEncoding(TEMP_OUTPUT_BLOB_FILE)
+	outputEncoding += "\n"
 
 
 	# Add on the password into the output if we're encrypted. 
 	# Don't want to lose that, will need it to decrypt the data
 	if args.password is not "NULL":
 		outputEncoding += 'unsigned char __cipherTextPassphrase[] = "' + args.password + '";'
-		outputEncoding += "\n"
+	
+	outputEncoding += "\n"
+	outputEncoding += "\n"
+	outputEncoding += "#endif //ENCODEDDATA_H"
+	outputEncoding += "\n"
+
 
 	outputFileHandle = open(OUTPUT_FILE_H, "w")
 	outputFileHandle.write(outputEncoding)
