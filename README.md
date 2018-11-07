@@ -7,4 +7,6 @@ and convert it to a XOR encrypted char array for embedding
 in loaders that decrypt the data in memory and do something
 useful with it. 
 
+Helpful for writing custom loaders for shellcode. 
+
 Basically a wrapper around xxd
