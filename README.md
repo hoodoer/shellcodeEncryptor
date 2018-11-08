@@ -9,4 +9,6 @@ useful with it.
 
 Helpful for writing custom loaders for shellcode. 
 
-Basically a wrapper around xxd
+Basically a wrapper around xxd.
+
+Note that the generated header file includes the encryption passphrase by default. If you leave this in the binary, many AVs will find that string, decrypt the payload and scan it. Best to use runtime assignment of the decryption key if you're shooting for AV bypass. 
