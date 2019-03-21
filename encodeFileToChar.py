@@ -111,6 +111,10 @@ if __name__ == '__main__':
 
 	# Add on the password into the output if we're encrypted. 
 	# Don't want to lose that, will need it to decrypt the data
+	# Note: If you actually compile this password into the binary
+	# some AV's will discover it, decrypt your shellcode on static 
+	# analysis, and bust you. So remove/comment that if you're 
+	# trying to be sneaky
 	if args.password is not "NULL":
 		outputEncoding += 'unsigned char __cipherTextPassphrase[] = "' + args.password + '";'
 	
