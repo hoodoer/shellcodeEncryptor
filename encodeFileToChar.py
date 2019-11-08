@@ -7,7 +7,6 @@
 # useful with it. 
 #
 # Drew Kirkpatrick
-# www.nopsec.com
 # drew.kirkpatrick@gmail.com
 # @hoodoer
 #
